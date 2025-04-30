@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Activities</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .activity-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Activities in Tokyo</h2>
+
+    <!-- Sample activities -->
+    <div class="activity-item">
+        <strong>Tokyo Tower Observation Deck</strong><br>
+        Price: <span class="price">$15</span><br>
+        Duration: 1 hour<br>
+        Description: Get a panoramic view of Tokyo from its iconic red tower.
+    </div>
+
+    <div class="activity-item">
+        <strong>Sushi Making Class</strong><br>
+        Price: <span class="price">$40</span><br>
+        Duration: 2.5 hours<br>
+        Description: Learn to make authentic sushi from a local chef.
+    </div>
+
+    <div class="activity-item">
+        <strong>Sumo Wrestling Experience</strong><br>
+        Price: <span class="price">$30</span><br>
+        Duration: 1.5 hours<br>
+        Description: Watch live sumo training and try it yourself with a guide.
+    </div>
+
+    <div class="note">* Sample layout for activities. Data will come from database later.</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgb(248, 246, 246);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .transport-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .transport-item:last-child {
+            border-bottom: none;
+        }
+
+        .type {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .cost {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Transportation in Japan</h2>
+
+    <!-- Sample transport options -->
+    <div class="transport-item">
+        <div class="type">Bullet Train (Shinkansen)</div>
+        Avg Cost: <span class="cost">$100</span><br>
+        Speed: 200+ mph<br>
+        Description: Fast intercity rail network with scenic views and punctual service.
+    </div>
+
+    <div class="transport-item">
+        <div class="type">Metro/Subway</div>
+        Avg Cost: <span class="cost">$2 - $4</span><br>
+        Speed: 30-40 mph<br>
+        Description: Extensive subway network in major cities like Tokyo and Osaka.
+    </div>
+
+    <div class="transport-item">
+        <div class="type">Taxi</div>
+        Avg Cost: <span class="cost">$30 for 5 miles</span><br>
+        Speed: Varies<br>
+        Description: Convenient but expensive. Good for late-night or rural travel.
+    </div>
+
+    <div class="transport-item">
+        <div class="type">Bike Rental</div>
+        Avg Cost: <span class="cost">$10/day</span><br>
+        Speed: Human-powered<br>
+        Description: Great for exploring cities like Kyoto at your own pace.
+    </div>
+
+    <div class="note">* Sample layout only. Actual transportation data will load dynamically from your backend.</div>
+</div>
+
+</body>
+</html>

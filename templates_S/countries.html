@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Countries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .country-list {
+            margin-top: 20px;
+        }
+        .country-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .country-item:last-child {
+            border-bottom: none;
+        }
+        .view-cities-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .view-cities-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Explore Countries</h2>
+
+    <!-- Search Countries -->
+    <form method="POST" action="/search_countries">
+        <input type="text" name="keyword" class="search-box" placeholder="Search for a country..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Example of Countries List (replace with backend data later) -->
+    <div class="country-list">
+        <div class="country-item">
+            <strong>Japan 🇯🇵</strong><br>
+            Population: 125 million<br>
+            Best Season to Visit: Spring<br>
+            <button class="view-cities-btn">View Cities</button>
+        </div>
+        <div class="country-item">
+            <strong>France 🇫🇷</strong><br>
+            Population: 67 million<br>
+            Best Season to Visit: Summer<br>
+            <button class="view-cities-btn">View Cities</button>
+        </div>
+        <div class="country-item">
+            <strong>Australia 🇦🇺</strong><br>
+            Population: 26 million<br>
+            Best Season to Visit: Winter (July-August)<br>
+            <button class="view-cities-btn">View Cities</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Hotels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .hotel-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hotel-item:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .rating {
+            color: #f5a623;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hotels in Tokyo</h2>
+
+    <!-- Sample hotels -->
+    <div class="hotel-item">
+        <strong>Shinjuku Grand Hotel</strong><br>
+        Price per night: <span class="price">$120</span><br>
+        Rating: <span class="rating">★★★★☆</span><br>
+        Amenities: Free Wi-Fi, Gym, Breakfast Included
+    </div>
+
+    <div class="hotel-item">
+        <strong>Tokyo Capsule Inn</strong><br>
+        Price per night: <span class="price">$45</span><br>
+        Rating: <span class="rating">★★★☆☆</span><br>
+        Amenities: Compact Capsules, Lounge, Shared Bath
+    </div>
+
+    <div class="hotel-item">
+        <strong>Parkside Tokyo Hotel</strong><br>
+        Price per night: <span class="price">$95</span><br>
+        Rating: <span class="rating">★★★★☆</span><br>
+        Amenities: Near subway, 24/7 Front Desk, Wi-Fi
+    </div>
+
+    <div class="note">* Sample layout for hotels. Real data can be loaded dynamically later.</div>
+</div>
+
+</body>
+</html>

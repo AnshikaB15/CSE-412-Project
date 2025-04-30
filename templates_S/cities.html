@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cities</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .city-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .city-item:last-child {
+            border-bottom: none;
+        }
+
+        .action-buttons {
+            margin-top: 10px;
+        }
+
+        .action-buttons button {
+            margin-right: 10px;
+            padding: 8px 12px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cities in Japan</h2>
+
+    <!-- Example city list -->
+    <div class="city-item">
+        <strong>Tokyo</strong><br>
+        Population: 14 million<br>
+        Famous For: Modern city, shopping, nightlife
+        <div class="action-buttons">
+            <button>View Activities</button>
+            <button>View Hotels</button>
+        </div>
+    </div>
+
+    <div class="city-item">
+        <strong>Kyoto</strong><br>
+        Population: 1.5 million<br>
+        Famous For: Temples, history, cherry blossoms
+        <div class="action-buttons">
+            <button>View Activities</button>
+            <button>View Hotels</button>
+        </div>
+    </div>
+
+    <div class="city-item">
+        <strong>Osaka</strong><br>
+        Population: 2.7 million<br>
+        Famous For: Food scene, Universal Studios
+        <div class="action-buttons">
+            <button>View Activities</button>
+            <button>View Hotels</button>
+        </div>
+    </div>
+
+    <div class="note">* This is a sample layout — dynamic data can be loaded later using Flask or backend.</div>
+</div>
+
+</body>
+</html>
