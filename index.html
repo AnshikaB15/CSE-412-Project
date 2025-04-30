@@ -1,65 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyword Search Demo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
-        }
-        .search-box {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        .results {
-            margin-top: 20px;
-        }
-        .result-item {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .result-item:last-child {
-            border-bottom: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voyage Vista</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #DFF3F1;
+    }
+
+    .header {
+      background-color: #2D2D2D;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 25px;
+      font-size: 20px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .header a:visited,
+    .header a:active {
+      color: white;
+    }
+
+    .header a:hover {
+      color: #FF7F50;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      text-align: center;
+      color: #2D2D2D;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .country-card {
+      background-color: #B6E2D3;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 6px solid #FF7F50;
+      border-radius: 5px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .separator {
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+
+    .country-card strong {
+      font-size: 18px;
+    }
+
+    .view-button {
+      margin-top: 15px;
+      padding: 10px 18px;
+      background-color: #2D2D2D;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .view-button:hover {
+      background-color: #444;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Search Products</h2>
-    <form method="POST" action="/">
-        <input type="text" name="keyword" class="search-box" placeholder="Enter a keyword to search..." required>
-        <button type="submit">Search</button>
-    </form>
+  <div class="header">
+    <a href="index.html">Home</a>
+    <span class="separator">|</span>
+    <a href="view_cities.html">Cities</a>
+    <span class="separator">|</span>
+    <a href="countries.html">Countries</a>
+  </div>
 
-    <div class="results">
-        {% if search_results %}
-            <h3>Search Results:</h3>
-            {% for result in search_results %}
-                <div class="result-item">
-                    <strong>{{ result[1] }}</strong><br>
-                    {{ result[2] }}
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No results found</p>
-        {% endif %}
+  <div class="container">
+    <div class="title">Welcome to Voyage Vista</div>
+
+    <input type="text" class="search-box" placeholder="Search Countries..." />
+
+    <!-- Country 1 -->
+    <div class="country-card">
+      <strong>🇯🇵 Japan</strong><br>
+      Population: 125 million<br>
+      Language: Japanese<br>
+      Best Season to Visit: Spring<br>
+      Avg Cost per Day: $110<br>
+      <button class="view-button">View Cities</button>
     </div>
-</div>
+
+    <!-- Country 2 -->
+    <div class="country-card">
+      <strong>🇫🇷 France</strong><br>
+      Population: 67 million<br>
+      Language: French<br>
+      Best Season to Visit: Summer<br>
+      Avg Cost per Day: $140<br>
+      <button class="view-button">View Cities</button>
+    </div>
+
+    <!-- Country 3 -->
+    <div class="country-card">
+      <strong>🇦🇺 Australia</strong><br>
+      Population: 26 million<br>
+      Language: English<br>
+      Best Season to Visit: Spring<br>
+      Avg Cost per Day: $120<br>
+      <button class="view-button">View Cities</button>
+    </div>
+  </div>
 
 </body>
 </html>
