@@ -29,7 +29,7 @@
     .header a {
       color: white;
       text-decoration: none;
-      margin: 0 25px;
+      margin: 0 10px;
       font-size: 20px;
       font-weight: 500;
       transition: color 0.3s ease;
@@ -44,70 +44,79 @@
       color: #FF7F50;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .title {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      text-align: center;
-      color: #2D2D2D;
-      margin-bottom: 30px;
-    }
-
-    .search-box {
-      width: 100%;
-      max-width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      margin-bottom: 30px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    .country-card {
-      background-color: #B6E2D3;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-left: 6px solid #FF7F50;
-      border-radius: 5px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
     .separator {
       color: white;
       margin: 0 10px;
       font-size: 20px;
     }
 
-    .country-card strong {
-      font-size: 18px;
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 50px 30px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      min-height: 500px;
     }
 
-    .view-button {
-      margin-top: 15px;
-      padding: 10px 18px;
-      background-color: #2D2D2D;
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #2D2D2D;
+      margin-bottom: 12px;
+    }
+
+    .blurb {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: #333;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #FF7F50;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .search-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #FF7F50;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
     }
 
-    .view-button:hover {
-      background-color: #444;
+    .search-button:hover {
+      background-color: #e6633e;
     }
   </style>
 </head>
@@ -123,38 +132,35 @@
 
   <div class="container">
     <div class="title">Welcome to Voyage Vista</div>
-
-    <input type="text" class="search-box" placeholder="Search Countries..." />
-
-    <!-- Country 1 -->
-    <div class="country-card">
-      <strong>🇯🇵 Japan</strong><br>
-      Population: 125 million<br>
-      Language: Japanese<br>
-      Best Season to Visit: Spring<br>
-      Avg Cost per Day: $110<br>
-      <button class="view-button">View Cities</button>
+    <div class="blurb">
+      Find experiences by country, city, and category.
     </div>
 
-    <!-- Country 2 -->
-    <div class="country-card">
-      <strong>🇫🇷 France</strong><br>
-      Population: 67 million<br>
-      Language: French<br>
-      Best Season to Visit: Summer<br>
-      Avg Cost per Day: $140<br>
-      <button class="view-button">View Cities</button>
-    </div>
+    <form>
+      <div class="form-wrapper">
+        <div class="form-group">
+          <label for="country">Country <span style="color:red">*</span></label>
+          <input type="text" id="country" name="country" placeholder="Enter a country" required />
+        </div>
 
-    <!-- Country 3 -->
-    <div class="country-card">
-      <strong>🇦🇺 Australia</strong><br>
-      Population: 26 million<br>
-      Language: English<br>
-      Best Season to Visit: Spring<br>
-      Avg Cost per Day: $120<br>
-      <button class="view-button">View Cities</button>
-    </div>
+        <div class="form-group">
+          <label for="city">City <span style="color:red">*</span></label>
+          <input type="text" id="city" name="city" placeholder="Enter a city" required />
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category <span style="color:red">*</span></label>
+          <select id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="activities">Activities</option>
+            <option value="transportation">Transportation</option>
+            <option value="hotels">Hotels</option>
+          </select>
+        </div>
+
+        <button class="search-button" type="submit">Search</button>
+      </div>
+    </form>
   </div>
 
 </body>
