@@ -22,6 +22,7 @@
     .header {
       background-color: #2D2D2D;
       padding: 15px 0;
+      position: relative;
       text-align: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
@@ -48,6 +49,24 @@
       color: white;
       margin: 0 10px;
       font-size: 20px;
+    }
+
+    .notepad-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .notepad-btn:hover {
+      color: #FF7F50;
     }
 
     .container {
@@ -103,6 +122,7 @@
       border-radius: 6px;
       font-weight: bold;
     }
+
     .back-button:hover {
       background-color: #444;
     }
@@ -143,37 +163,22 @@
     #notepad .close-btn:hover {
       color: red;
     }
-
-      .notepad-btn {
-    color: #C7E7DC;
-    font-size: 22px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-
-  .notepad-btn:hover {
-    color: #FF7F50;
-  }
   </style>
 </head>
 <body>
 
-    <div class="header">
-        <a href="index.html">Home</a>
-        <span class="separator">|</span>
-        <a href="cities.html">Cities</a>
-        <span class="separator">|</span>
-        <a href="countries.html">Countries</a>
-        <span class="separator">|</span>
-        <button class= "notepad-btn" onclick = "toggleNotepad()">➕</button>
-      </div>
+  <div class="header">
+    <a href="index.html">Home</a>
+    <span class="separator">|</span>
+    <a href="cities.html">Cities</a>
+    <span class="separator">|</span>
+    <a href="countries.html">Countries</a>
+    <button class="notepad-btn" onclick="toggleNotepad()">➕ Add a Note</button>
+  </div>
 
-<div class="container">
+  <div class="container">
     <h2 class="title">Hotels in {{ city_name }}</h2>
-   
+
     {% if results %}
       {% for result in results %}
         <div class="hotel-box">
@@ -190,24 +195,25 @@
     {% endif %}
 
     <a href="index.html" class="back-button">Back</a>
-</div>
-<div id="notepad">
-  <button class="close-btn" onclick="toggleNotepad()">✖</button>
-  <textarea id="noteArea" placeholder="Type your notes here..."></textarea>
-</div>
+  </div>
 
-<script>
-  function toggleNotepad() {
-    const pad = document.getElementById("notepad");
-    pad.style.display = (pad.style.display === "block") ? "none" : "block";
-  }
+  <div id="notepad">
+    <button class="close-btn" onclick="toggleNotepad()">✖</button>
+    <textarea id="noteArea" placeholder="Type your notes here..."></textarea>
+  </div>
 
-  // Load saved notes
-  const noteArea = document.getElementById("noteArea");
-  noteArea.value = localStorage.getItem("userNotes") || "";
-  noteArea.addEventListener("input", () => {
-    localStorage.setItem("userNotes", noteArea.value);
-  });
-</script>
+  <script>
+    function toggleNotepad() {
+      const pad = document.getElementById("notepad");
+      pad.style.display = (pad.style.display === "block") ? "none" : "block";
+    }
+
+    const noteArea = document.getElementById("noteArea");
+    noteArea.value = localStorage.getItem("userNotes") || "";
+    noteArea.addEventListener("input", () => {
+      localStorage.setItem("userNotes", noteArea.value);
+    });
+  </script>
+
 </body>
 </html>
