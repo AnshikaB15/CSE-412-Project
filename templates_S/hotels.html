@@ -1,82 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Hotels</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotels - Voyage Vista</title>
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet"/>
 
-        .hotel-item {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        .hotel-item:last-child {
-            border-bottom: none;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #DFF3F1;
+    }
 
-        .price {
-            color: #007BFF;
-            font-weight: bold;
-        }
+    .header {
+      background-color: #2D2D2D;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-        .rating {
-            color: #f5a623;
-        }
+    .header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 20px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-        h2 {
-            margin-bottom: 10px;
-        }
+    .header a:visited,
+    .header a:active {
+      color: white;
+    }
 
-        .note {
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
-        }
-    </style>
+    .header a:hover {
+      color: #FF7F50;
+    }
+
+    .separator {
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #2D2D2D;
+    }
+
+    .hotel-box {
+      background-color: #C7E7DC;
+      border-left: 6px solid #FF7F50;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .hotel-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2D2D2D;
+    }
+
+    .price {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .no-results {
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #2D2D2D;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .search-bar {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: 3px solid #f18c62;
+        border-radius: 14px;
+        outline: none;
+        color: #333;
+    }
+
+    .back-button:hover {
+      background-color: #444;
+    }
+  </style>
 </head>
 <body>
 
+    <div class="header">
+        <a href="index.html">Home</a>
+        <span class="separator">|</span>
+        <a href="cities.html">Cities</a>
+        <span class="separator">|</span>
+        <a href="countries.html">Countries</a>
+      </div>
+
 <div class="container">
-    <h2>Hotels in Tokyo</h2>
+    <h2 class="title">Hotels in {{ city_name }}</h2>
 
-    <!-- Sample hotels -->
-    <div class="hotel-item">
-        <strong>Shinjuku Grand Hotel</strong><br>
-        Price per night: <span class="price">$120</span><br>
-        Rating: <span class="rating">★★★★☆</span><br>
-        Amenities: Free Wi-Fi, Gym, Breakfast Included
+    <div class="form-wrapper">
+        <div class="form-group">
+            <input type="text" id="hotel" name="hotel" class="search-bar" placeholder="Enter a hotel name" required />
+        </div>    
     </div>
+   
+    {% if results %}
+      {% for result in results %}
+        <div class="hotel-box">
+          <h3 class="hotel-name">{{ result[1] }}</h3>
+          <p class="price">
+            Star Rating: {{ result[2] }} |
+            Price Per Night: ${{ result[3] }} |
+            Address: {{ result[4] }}
+          </p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="no-results">No activities found for this city and country.</p>
+    {% endif %}
 
-    <div class="hotel-item">
-        <strong>Tokyo Capsule Inn</strong><br>
-        Price per night: <span class="price">$45</span><br>
-        Rating: <span class="rating">★★★☆☆</span><br>
-        Amenities: Compact Capsules, Lounge, Shared Bath
-    </div>
-
-    <div class="hotel-item">
-        <strong>Parkside Tokyo Hotel</strong><br>
-        Price per night: <span class="price">$95</span><br>
-        Rating: <span class="rating">★★★★☆</span><br>
-        Amenities: Near subway, 24/7 Front Desk, Wi-Fi
-    </div>
-
-    <div class="note">* Sample layout for hotels. Real data can be loaded dynamically later.</div>
+    <a href="index.html" class="back-button">Back</a>
 </div>
 
 </body>
