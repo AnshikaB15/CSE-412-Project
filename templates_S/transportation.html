@@ -50,6 +50,24 @@
       font-size: 20px;
     }
 
+    .notepad-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .notepad-btn:hover {
+      color: #FF7F50;
+    }
+
     .container {
       max-width: 800px;
       margin: 50px auto;
@@ -107,6 +125,43 @@
     .back-button:hover {
       background-color: #444;
     }
+
+     #notepad {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 250px;
+      height: 200px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 10px;
+      display: none;
+      z-index: 1000;
+    }
+
+    #notepad textarea {
+      width: 100%;
+      height: 130px;
+      resize: none;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 5px;
+    }
+
+    #notepad .close-btn {
+      float: right;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    #notepad .close-btn:hover {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -117,6 +172,7 @@
     <a href="cities.html">Cities</a>
     <span class="separator">|</span>
     <a href="countries.html">Countries</a>
+     <button class="notepad-btn" onclick="toggleNotepad()">➕ Add a Note</button>
   </div>
 
   <div class="container">
@@ -137,6 +193,22 @@
 
     <a href="index.html" class="back-button">Back</a>
   </div>
+<div id="notepad">
+    <button class="close-btn" onclick="toggleNotepad()">✖</button>
+    <textarea id="noteArea" placeholder="Type your notes here..."></textarea>
+  </div>
 
+  <script>
+    function toggleNotepad() {
+      const pad = document.getElementById("notepad");
+      pad.style.display = (pad.style.display === "block") ? "none" : "block";
+    }
+
+    const noteArea = document.getElementById("noteArea");
+    noteArea.value = localStorage.getItem("userNotes") || "";
+    noteArea.addEventListener("input", () => {
+      localStorage.setItem("userNotes", noteArea.value);
+    });
+  </script>
 </body>
 </html>
